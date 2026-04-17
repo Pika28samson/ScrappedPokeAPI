@@ -16,7 +16,7 @@ def fetch_all_pokemon_forms():
         return
 
     pokemon_data = {}
-    cwd = r"C:\Me\Python Projects\All Pokemon Sprites"
+    cwd = os.getcwd()
     file_path = os.path.join(cwd, "all_pokemon_forms.json")
 
     # We fetch the list of all URLs first to avoid ID gaps
@@ -34,10 +34,10 @@ def fetch_all_pokemon_forms():
 
             # Building the dictionary
             info = {name:data}
-            if name == "bulbasaur":
-                print(info["bulbasaur"]["sprites"])
-                with open(os.path.join(cwd, "bulbasaur-test.json"), "w", encoding="utf-8") as f:
-                    json.dump(info, f, indent=4)
+#            if name == "bulbasaur":
+#                print(info["bulbasaur"]["sprites"])
+#                with open(os.path.join(cwd, "bulbasaur-test.json"), "w", encoding="utf-8") as f:
+#                    json.dump(info, f, indent=4)
             
             pokemon_data.update(info)
             print(f"Fetched: {name} (ID: {data['id']})")
